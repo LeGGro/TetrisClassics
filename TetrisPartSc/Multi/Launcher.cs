@@ -18,15 +18,18 @@ namespace Com.MyCompany.MyGame
             PhotonNetwork.GameVersion = "1";
             PhotonNetwork.ConnectUsingSettings();
         }
+        
         public override void OnConnectedToMaster()
         {
             PhotonNetwork.JoinLobby();
         }
+        
         public override void OnJoinedLobby()
         {
             createRoomBut.SetActive(true);
             allRoomsBut.SetActive(true);
         }
+        
         public static void ChangeNick(string stra)
         {
             PhotonNetwork.NickName = stra;
