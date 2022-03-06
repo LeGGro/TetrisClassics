@@ -8,6 +8,7 @@ public class rando : MonoBehaviour
     public static int[] mass = new int[400];
     
     PhotonView PV;
+    
     public void Awake()
     {
         PV = GetComponent<PhotonView>();
@@ -22,6 +23,7 @@ public class rando : MonoBehaviour
             PV.RPC("SetSequency", RpcTarget.AllBuffered, combination);
         }
     }
+    
     [PunRPC]
     void SetSequency(string comb)
     {
