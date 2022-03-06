@@ -15,6 +15,7 @@ public class GM : MonoBehaviourPunCallbacks
     public GameObject cameraPlayer2;
     public GameObject cameraPlayer3;
     public GameObject cameraPlayer4;
+    
     void Start()
     {
         
@@ -58,6 +59,7 @@ public class GM : MonoBehaviourPunCallbacks
             cameraPlayer4.SetActive(true);
         }
     }
+    
     public void Update()
     {
         if (PhotonNetwork.PlayerList.Length == 2)
