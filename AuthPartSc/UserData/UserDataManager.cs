@@ -16,11 +16,15 @@ public class UserDataManager : MonoBehaviour
     public TMP_Text coinsText2;
     public TMP_Text gemsText2;
     public TMP_Text nameText2;
+    
+    public event UserDataManager DataRecieve;
+    
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
         GetUserData();
     }
+    
     public void UpdateInfo()
     {
         GetInventory();
@@ -31,6 +35,7 @@ public class UserDataManager : MonoBehaviour
         gemsText2.text = gems;
         nameText2.text = NAME;
     }
+    
     public void SetUserData(string coins, string gems)
     {
         PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
@@ -47,6 +52,7 @@ public class UserDataManager : MonoBehaviour
             Debug.Log(error.GenerateErrorReport());
         });
     }
+    
     public void SetDefaultUserData()
     {
         PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
@@ -64,6 +70,7 @@ public class UserDataManager : MonoBehaviour
             Debug.Log(error.GenerateErrorReport());
         });
     }
+    
     private void GetUserData()
     {
         PlayFabClientAPI.GetUserData(new GetUserDataRequest()
@@ -72,7 +79,8 @@ public class UserDataManager : MonoBehaviour
         },
         result =>
         {
-
+            DataRecieve?.Invoke(Indicate());
+            
             if (!result.Data.ContainsKey("Complains_Bot") || !result.Data.ContainsKey("Complains_Team")|| !result.Data.ContainsKey("Complains_Teammates")) SetDefaultUserData();
             //else { this.coins = result.Data["Complains_Bot"].Value; gems = result.Data["Complains_Team"].Value; }
             SetValueToScreen();
@@ -82,7 +90,14 @@ public class UserDataManager : MonoBehaviour
             Debug.Log("Got error retrieving user data:");
             Debug.Log(error.GenerateErrorReport());
         });
+        
     }
+    
+    private void Indicate()
+    {
+        Debug.Log("Data Recieved");
+    }
+    
     public void SetValueToScreen()
     {
         PlayFabClientAPI.GetAccountInfo(new GetAccountInfoRequest(),
@@ -102,11 +117,10 @@ public class UserDataManager : MonoBehaviour
 
         });
     }
+    
     void GetInventory()
     {
         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), LogSuccess, LogFailure);
-
-
     }
 
     private void LogFailure(PlayFabError obj)
@@ -119,5 +133,11 @@ public class UserDataManager : MonoBehaviour
         coins =  Convert.ToString( obj.VirtualCurrency["GO"]);
         gems = Convert.ToString(obj.VirtualCurrency["GE"]);
         UpdateInfo();
+    }
+    
+    protected virtual OnDataRecieve(EventArgs e)
+    {
+        EventHandler handler = DataRecieve;
+        handler?.Invoke(this, e);
     }
 }
