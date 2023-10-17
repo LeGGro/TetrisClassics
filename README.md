@@ -12,3 +12,4 @@ nothing
 # Libraries used: 
 PlayFab(Unity.NET SDK)
 PhotonPun2(UnitySDK)
+Firebase(UnitySdk) 
