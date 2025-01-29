@@ -13,9 +13,24 @@ nothing
 PlayFab(Unity.NET SDK)
 PhotonPun2(UnitySDK)
 Firebase(UnitySdk) 
+
+# Screens:
+
+Enter screen
 ![Enter screen](https://github.com/LeGGro/TetrisClassics/blob/main/showup/tetrisshowup1.JPG)
+
+Game Menu
 ![Game Menu](https://github.com/LeGGro/TetrisClassics/blob/main/showup/tetrisshowup4.JPG)
-![Playfab](https://github.com/LeGGro/TetrisClassics/blob/main/showup/tetrisshowup2.JPG)
-![firebase](https://github.com/LeGGro/TetrisClassics/blob/main/showup/tetrisshowup3.JPG)
+
+Lobby
 ![Lobby](https://github.com/LeGGro/TetrisClassics/blob/main/showup/5307615487003321747.jpg)
+
+Game
 ![Game](https://github.com/LeGGro/TetrisClassics/blob/main/showup/5307615487003321746.jpg)
+
+Playfab
+![Playfab](https://github.com/LeGGro/TetrisClassics/blob/main/showup/tetrisshowup2.JPG)
+
+Firebase
+![firebase](https://github.com/LeGGro/TetrisClassics/blob/main/showup/tetrisshowup3.JPG)
+
