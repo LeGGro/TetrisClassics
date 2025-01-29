@@ -32,5 +32,5 @@ Playfab
 ![Playfab](https://github.com/LeGGro/TetrisClassics/blob/main/showup/tetrisshowup2.JPG)
 
 Firebase
-![firebase](https://github.com/LeGGro/TetrisClassics/blob/main/showup/tetrisshowup3.PNG)
+![firebase](https://github.com/LeGGro/TetrisClassics/blob/main/showup/tetrisshowup3.png)
 
